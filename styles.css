@@ -26,7 +26,7 @@ p.subtitle {
 
 h1 {
   border-bottom: 2px solid #ffffff;
-  color: #DD1972;
+  color: #8A29EB;
   font-size: 62px;
   font-weight: 800;
   padding-bottom: 10px;
@@ -84,7 +84,7 @@ h3 {
 }
 
 .style-score {
-  color: #DD1972;
+  color: #8A29EB;
   font-size: 6em;
   font-weight: 800;
 }
@@ -241,7 +241,7 @@ button {
   justify-content: space-between;
 }
 
-#min-range-input, 
+#min-range-input,
 #max-range-input {
   width: 100%;
 }
@@ -280,25 +280,25 @@ main {
 }
 
 .error-message {
-  color: #DD1972;
+  color: #8A29EB;
 }
 
 .error-border {
-  border-color: #DD1972;
+  border-color: #8A29EB;
 }
 
 #chall1-name-input:invalid {
-  border-color: #DD1972;
+  border-color: #8A29EB;
 }
 
 #chall2-name-input:invalid {
-  border-color: #DD1972;
+  border-color: #8A29EB;
 }
 
 #clear-btn:disabled {
   background-color: #D0D2D3;
 }
- 
+
 #reset-btn:disabled {
   background-color: #D0D2D3;
 }
@@ -393,7 +393,7 @@ main {
   .chall2-score {
     margin-bottom: 20px;
     margin: auto;
-    padding-bottom: 20px; 
+    padding-bottom: 20px;
   }
 
 }
@@ -415,7 +415,7 @@ main {
   }
 
   main {
-    flex-direction: column; 
+    flex-direction: column;
   }
 
   .display,
