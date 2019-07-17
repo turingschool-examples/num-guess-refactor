@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number Guesser Doubles</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <header>
+    <h1>NUMBER<span class="font-light">GUESSER</span></h1>
+    <p class='subtitle'>ULTIMATE CHALLENGER EDITION</p>
+  </header>
+  <main>
+    <section class="game">
+      <form class="range" name="range">
+        <h3 class="range-card">Set Range</h3>
+          <div class="update-error" hidden>
+            <img src="assets/error-icon.svg" class="error-icon"><span class="error-message">Please enter 2 numbers</span>
+          </div>
+          <div class="set-range-items">
+            <div class="form-elements style-range-inputs">
+              <label for="min-range-input">Min Range</label>
+              <input type="number" name="range" id="min-range-input">
+              <div class="min-above-max-error" hidden>
+                <img src="assets/error-icon.svg" class="error-icon" alt="error-symbol"><span class="error-message"> Must be less than Max</span>
+              </div>
+            </div>
+            <div class="form-elements style-range-inputs">
+              <label for="max-range-input">Max Range</label>
+              <input type="number" name="range" id="max-range-input">
+              <div class="max-below-min-error" hidden>
+                <img src="assets/error-icon.svg" class="error-icon" alt="error-symbol"><span class="error-message"> Must be greater than Min</span>
+              </div>
+            </div>
+          <button class="update-btn" name="range">UPDATE</button>
+        </div>
+      </form>
+      <form class="current-game" name="current-game">
+        <p>The Current Range is <span class="min-output">1</span> to <span class="max-output">100</span></p>
+        <h3>Challenger 1</h3>
+        <div class="name-guess-form">
+          <div class="form-elements name-input" >
+            <label for="chall1-name-input">Name</label>
+            <input type="text" class="submit-inputs" name="current-game" id="chall1-name-input" pattern="[a-zA-Z0-9\s]+">
+            <div class="validation-error" hidden>
+              <img src="assets/error-icon.svg" class="error-icon" alt="error-symbol"><span class="error-message"> Enter a name</span>
+            </div>
+          </div>
+          <div class="form-elements guess-input">
+            <label for="chall1-guess-input">Guess</label>
+            <input type="text" class="submit-inputs" name="current-game" id="chall1-guess-input">
+            <div class="guess-outside-range-error-1" hidden><img src="assets/error-icon.svg" class="error-icon" alt="error-symbol"><span class="error-message">Must be within range</span>
+            </div>
+            <div class="nan-error1" hidden>
+              <img src="assets/error-icon.svg" class="error-icon" alt="error-symbol"><span class="error-message"> Must be a Number</span>
+            </div>
+          </div>
+        </div>
+        <h3>Challenger 2</h3>
+        <div class="name-guess-form"> 
+          <div class="form-elements name-input">
+            <label for="chall2-name-input">Name</label>
+            <input type="text" class="submit-inputs" name="current-game" id="chall2-name-input" pattern="[a-zA-Z0-9\s]+">
+          </div>
+          <div class="form-elements guess-input">
+            <label for="chall2-guess-input">Guess</label>
+            <input type="text" class="submit-inputs" name="current-game" id="chall2-guess-input">
+            <div class="guess-outside-range-error-2" hidden><img src="assets/error-icon.svg" class = "error-icon" alt="error-symbol"><span class="error-message">Must be within range</span>
+            </div>
+            <div class="nan-error2" hidden>
+              <img src="assets/error-icon.svg" class="error-icon" alt="error-symbol"><span class="error-message"> Must be a Number</span>
+            </div>
+          </div>
+        </div>
+        <div class="submit-error" hidden>
+          <img src="assets/error-icon.svg" class="error-icon" alt="error-symbol"><span class="error-message">Please enter 2 guesses</span>
+        </div>
+        <div class="game-buttons-container">
+          <button name="current-game" id="submit-btn">SUBMIT GUESS</button>
+          <button name="current-game" id="reset-btn">RESET GAME</button>
+          <button name="current-game" id="clear-btn">CLEAR GAME</button>
+        </div>
+      </form>
+      <article class="scoreboard">
+        <h3 class="score-title">Latest Score</h3>
+        <div class="latest-score">
+          <div class="chall1-score">
+            <h4 class="scoreboard-name1">Challenger 1 Name</h4>
+            <p>current guess</p>
+            <p class="chall1-guess-output style-score guess">0</p>
+            <p class="chall1-high-low font-light message">guess message</p> 
+          </div>
+          <div class="chall2-score">
+            <h4 class="scoreboard-name2">Challenger 2 Name</h4>
+            <p>current guess</p>
+            <p class="chall2-guess-output style-score guess">0</p>
+            <p class="chall2-high-low message font-light">guess message</p>
+          </div>
+        </div>
+      </article>
+    </section>
+    <section class="display">
+    </section>
+  </main>
+</body>
+  <script type="text/javascript" src="main.js"></script>
+</html>

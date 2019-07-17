@@ -1,0 +1,443 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+header {
+  background-color: #404041;
+  height: 10%;
+  margin: auto;
+}
+
+p {
+  font-size: 20px;
+}
+
+h1,
+p.subtitle {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+h1 {
+  border-bottom: 2px solid #ffffff;
+  color: #DD1972;
+  font-size: 62px;
+  font-weight: 800;
+  padding-bottom: 10px;
+  width: 535px;
+}
+
+h3 {
+  color: #404041;
+  display: block;
+  margin-bottom: 5px;
+  margin-top: 15px;
+}
+
+.subtitle {
+  background-color: #404041;
+  bottom: 15px;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 300;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: relative;
+  width: 325px;
+}
+
+.font-light {
+  font-weight: 300;
+}
+
+.scoreboard {
+  border: 2px solid #D0D2D3;
+  margin: 10px;
+  padding: 10px;
+}
+
+.latest-score {
+  color: #6E6E6E;
+  display: flex;
+  justify-content: center;
+}
+
+.score-title {
+  margin-top: 10px;
+}
+
+.chall1-score {
+  border-right: 2px solid #D0D2D3;
+}
+
+.chall1-score,
+.chall2-score {
+  margin-bottom: 15px;
+  text-align: center;
+  width: 45%;
+}
+
+.style-score {
+  color: #DD1972;
+  font-size: 6em;
+  font-weight: 800;
+}
+
+.winnercard {
+  background-color: #FFFFFF;
+  border: 2px solid grey;
+  color: #6E6E6E;
+  height: auto;
+  margin: 20px;
+  padding: 10px;
+}
+
+.chall1-name-output,
+.chall2-name-output {
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.chall1-name-output {
+  margin-left: 5%;
+  margin-right: 20px;
+}
+
+.chall2-name-output {
+  margin-left: 20px;
+  margin-right: 5%;
+}
+
+.card-headline {
+  border-bottom: 2px solid #D0D2D3;
+  display: flex;
+  font-weight: 300;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+h2 {
+  font-size: 2em;
+  font-weight: 800;
+  margin-block-end: 0;
+  margin-block-start: .8em;
+}
+
+p.winner-tagline {
+  font-size: 2.5em;
+  margin-block-end: 10px;
+  margin-block-start: 0;
+}
+
+.card-winner {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.card-bottom {
+  border-top: 2px solid #D0D2D3;
+}
+
+ul {
+  display: flex;
+  justify-content: space-between;
+  padding-inline-start: 0px;
+}
+
+li {
+  list-style: none;
+  margin: 8px;
+  width: ;
+}
+
+.remove-card-btn {
+  background-color: #6E6E6E;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 300;
+  height: 25px;
+  padding-top: 1px;
+  width: 25px;
+}
+
+.name-guess-form {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.game-buttons-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.form-elements {
+  display: block;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+label {
+  display: block;
+}
+
+input {
+  border: 2px solid #D0D2D3;
+  height: 30px;
+  width: 100%;
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  background-color: #6E6E6E;
+  border-radius: 20px;
+  color: #FFFFFF;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  height: 30px;
+  padding: 5px;
+  width: 32%;
+}
+
+.name-input {
+  width: 60%;
+}
+
+.guess-input {
+  width: 35%;
+}
+
+.current-game,
+.range {
+  border: 2px solid #D0D2D3;
+  margin: 10px;
+  padding: 10px;
+}
+
+.min-output,
+.max-output {
+  font-size: 20px;
+  font-weight: 800;
+  text-decoration: underline;
+}
+
+.range-card {
+  margin-top: 0;
+}
+
+.set-range-items {
+  display: flex;
+  justify-content: space-between;
+}
+
+#min-range-input, 
+#max-range-input {
+  width: 100%;
+}
+
+.update-btn {
+  margin-top: 20px;
+  width: 20%;
+}
+
+.style-range-inputs {
+  width: 40%;
+}
+
+main {
+  display: flex;
+  height: 120vh;
+}
+
+.game {
+  background-color: #f7f7f7;
+  width: 50%;
+}
+
+.display {
+  background-color: #D0D2D3;
+  border-left: 2px solid grey;
+  width: 50%;
+}
+
+.error-icon {
+  width: 20px;
+}
+
+.validation-error {
+  margin: 2px 0px 0px 7px;
+}
+
+.error-message {
+  color: #DD1972;
+}
+
+.error-border {
+  border-color: #DD1972;
+}
+
+#chall1-name-input:invalid {
+  border-color: #DD1972;
+}
+
+#chall2-name-input:invalid {
+  border-color: #DD1972;
+}
+
+#clear-btn:disabled {
+  background-color: #D0D2D3;
+}
+ 
+#reset-btn:disabled {
+  background-color: #D0D2D3;
+}
+
+#submit-btn:disabled {
+  background-color: #D0D2D3;
+}
+
+@media screen and (max-width: 900px) {
+
+  p.winner-tagline {
+    font-size: 1.8em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  .chall1-name-output,
+  .chall2-name-output {
+    font-size: 0.8em;
+  }
+
+  button {
+    font-size: 13px;
+  }
+
+}
+
+@media screen and (max-width: 770px) {
+
+  .style-score {
+    font-size: 4em;
+  }
+
+  ul {
+    font-size: 14px;
+  }
+
+  .game-buttons-container {
+    align-items: center;
+    flex-direction: column;
+    justify-content: none;
+  }
+
+  button {
+    margin: 8px;
+    width: 100%;
+  }
+
+  .set-range-items {
+    align-items: left;
+    flex-direction: column;
+  }
+
+  .style-range-inputs {
+    width: 99%;
+  }
+
+  .update-btn {
+    margin-left: 0px;
+    margin-top: 10px;
+    width: 30%;
+  }
+
+  main {
+    height: 163vh;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .error-message {
+    font-size: 12px;
+  }
+
+  .error-icon {
+    width: 14px;
+  }
+
+   .latest-score {
+    display: block;
+  }
+
+  .chall1-score {
+    border-bottom: 2px solid #D0D2D3;
+    border-right: none;
+  }
+
+  .chall1-score,
+  .chall2-score {
+    margin-bottom: 20px;
+    margin: auto;
+    padding-bottom: 20px; 
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+
+  h1 {
+    width: 305px;
+    font-size: 2.2em;
+    padding-bottom: 5px;
+  }
+
+  .subtitle {
+    font-size: 11px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    width: 178px;
+  }
+
+  main {
+    flex-direction: column; 
+  }
+
+  .display,
+  .game {
+    width: 100%;
+  }
+
+  .display{
+    height: 100%;
+  }
+
+  .style-score {
+    font-size: 6em;
+  }
+
+  p {
+    font-size: 20px;
+  }
+
+  header {
+    padding-bottom: 8px;
+    padding-top: 8px;
+  }
+
+}
