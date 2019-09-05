@@ -32,24 +32,45 @@ var maxRange = 100;
 var randomNumber;
 var guessCount = 0;
 
-clearBtn.addEventListener('click', clearInputs);
-updateButton.addEventListener('click', updateError);
-updateButton.addEventListener('click', updateRange);
-submitBtn.addEventListener('click', initiateGamePlay);
-resetBtn.addEventListener('click', resetGame);
-displayArea.addEventListener('click', deleteCard);
-chall1Name.addEventListener('blur', runName);
-chall2Name.addEventListener('blur', runName);
-guess1.addEventListener('keyup', runGuess1);
-guess2.addEventListener('keyup', runGuess2);
-minRangeInput.addEventListener('keyup', runMinRange);
-maxRangeInput.addEventListener('keyup', runMaxRange);
+var rangeForm = document.querySelector('.range')
+var guessForm = document.querySelector('.current-game')
 
-submitBtn.disabled = true;
-clearBtn.disabled = true;
-resetBtn.disabled = true;
+rangeForm.addEventListener('click', rangeHandler)
+rangeForm.addEventListener('keyup', rangeHandler)
+
+guessForm.addEventListener('click', guessFormClickHandler)
+guessForm.addEventListener('focusout', runName)
+guessForm.addEventListener('keyup', runGuess)
+
+displayArea.addEventListener('click', deleteCard);
+
 
 getRandom(1, 100);
+
+function guessFormClickHandler(event) {
+  if (event.target.id === 'clear-btn') {
+    clearInputs();
+  }
+  if (event.target.id === 'reset-btn') {
+    resetGame(event);
+  }
+  if (event.target.id === 'submit-btn') {
+    initiateGamePlay(event);
+  }
+}
+
+function rangeHandler(event) {
+  if (event.target.id === 'min-range-input') {
+    runMinRange()
+  }
+  if (event.target.id === 'max-range-input') {
+    runMaxRange()
+  }
+  if (event.target.className === 'update-btn') {
+    updateError(event);
+    updateRange(event);
+  }
+}
 
 function runName(event) {
   validateNames(event.target);
@@ -58,21 +79,16 @@ function runName(event) {
   enableSubmitBtn();
 }
 
-function runGuess1() {
+function runGuess() {
   validateNumber(guess1, nanError1);
-  enableClearResetBtn(guess1, guess2, resetBtn);
-  enableClearResetBtn(guess1, guess2, clearBtn);
-  validateGuess(guess1, guessErrorElem1);
-  enableSubmitBtn()
-}
-
-function runGuess2() {
   validateNumber(guess2, nanError2);
   enableClearResetBtn(guess1, guess2, resetBtn);
   enableClearResetBtn(guess1, guess2, clearBtn);
+  validateGuess(guess1, guessErrorElem1);
   validateGuess(guess2, guessErrorElem2);
   enableSubmitBtn()
 }
+
 
 function runMinRange() {
   minAboveMaxError();
@@ -100,7 +116,6 @@ function enableSubmitBtn() {
   for (var i = 0; i < submitInputs.length; i++) {
     if (submitInputs[i].value === "") {
       submitBtn.disabled = true;
-      return
     } else {
       submitBtn.disabled = false;
     }
