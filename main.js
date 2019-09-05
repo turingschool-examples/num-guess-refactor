@@ -29,10 +29,8 @@ var submitInputs = document.querySelectorAll('.submit-inputs');
 var inputTest = document.querySelectorAll('input');
 var minRange = 1;
 var maxRange = 100;
-var randomNumber
+var randomNumber;
 var guessCount = 0;
-
-
 
 clearBtn.addEventListener('click', clearInputs);
 updateButton.addEventListener('click', updateError);
@@ -40,8 +38,8 @@ updateButton.addEventListener('click', updateRange);
 submitBtn.addEventListener('click', initiateGamePlay);
 resetBtn.addEventListener('click', resetGame);
 displayArea.addEventListener('click', deleteCard);
-chall1Name.addEventListener('keyup', runName1);
-chall2Name.addEventListener('keyup', runName2);
+chall1Name.addEventListener('blur', runName);
+chall2Name.addEventListener('blur', runName);
 guess1.addEventListener('keyup', runGuess1);
 guess2.addEventListener('keyup', runGuess2);
 minRangeInput.addEventListener('keyup', runMinRange);
@@ -53,18 +51,11 @@ resetBtn.disabled = true;
 
 getRandom(1, 100);
 
-function runName1() {
-  validateNames(chall1Name);
+function runName(event) {
+  validateNames(event.target);
   enableClearResetBtn(chall1Name, chall2Name, clearBtn);
   enableClearResetBtn(chall1Name, chall2Name, resetBtn);
   enableSubmitBtn();
-}
-
-function runName2() {
-  validateNames(chall2Name);
-  enableClearResetBtn(chall1Name, chall2Name, clearBtn);
-  enableClearResetBtn(chall1Name, chall2Name, resetBtn);
-  enableSubmitBtn()
 }
 
 function runGuess1() {
@@ -116,9 +107,9 @@ function enableSubmitBtn() {
   }
 }
 
-function enableClearResetBtn(name1, name2, button) {
-  if (name1.value === "" && name2.value === "") {
-  button.disabled = true;
+function enableClearResetBtn(nameA, nameB, button) {
+  if (nameA.value === "" && nameB.value === "") {
+    button.disabled = true;
   } else {
     button.disabled = false;
   }
@@ -180,7 +171,7 @@ function getRandom(min, max) {
 
 function validateNames(challName) {
   var regex = /^[0-9a-zA-Z]+$/;
-  if (regex.test(challName.value) !== true){
+  if (regex.test(challName.value) !== true) {
     addError(challName);
   } else {
     removeError(challName);
@@ -292,45 +283,45 @@ function appendCard(winnerName) {
       displayArea.insertAdjacentHTML('afterbegin', cardHTML);
 }
 
-  function deleteCard(event){
-    if (event.target.className === "remove-card-btn"){
-      event.target.closest('.winnercard').remove();
-    }
+function deleteCard(event){
+  if (event.target.className === "remove-card-btn"){
+    event.target.closest('.winnercard').remove();
   }
+}
 
-  function generateNewRandomNum() {
-    var minValue = min.innerText;
-    var maxValue = max.innerText;
-    var parsedMin = parseInt(minValue);
-    var parsedMax = parseInt(maxValue);
-    getRandom(parsedMin, parsedMax);
-  }
+function generateNewRandomNum() {
+  var minValue = min.innerText;
+  var maxValue = max.innerText;
+  var parsedMin = parseInt(minValue);
+  var parsedMax = parseInt(maxValue);
+  getRandom(parsedMin, parsedMax);
+}
 
-  function clearInputs() {
-    chall1Name.value = "";
-    chall2Name.value = "";
-    clearGuesses()
-    clearBtn.disabled = true;
-  }
+function clearInputs() {
+  chall1Name.value = "";
+  chall2Name.value = "";
+  clearGuesses()
+  clearBtn.disabled = true;
+}
 
-  function clearGuesses() {
-    guess1.value = "";
-    guess2.value = "";
-    submitBtn.disabled = true;
-  }
+function clearGuesses() {
+  guess1.value = "";
+  guess2.value = "";
+  submitBtn.disabled = true;
+}
 
-  function resetScoreBoard(name, guess, message, num) {
-    name.innerText = `Challenger ${num} name`;
-    guess.innerText = '?';
-    message.innerText = 'enter a guess';
-  }
+function resetScoreBoard(name, guess, message, num) {
+  name.innerText = `Challenger ${num} name`;
+  guess.innerText = '?';
+  message.innerText = 'enter a guess';
+}
 
-  function resetGame(event) {
-    event.preventDefault();
-    resetScoreBoard(name1, guess1Output, message1, 1);
-    resetScoreBoard(name2, guess2Output, message2, 2);
-    clearInputs();
-    min.innerText = 1;
-    max.innerText = 100;
-    getRandom(1, 100)
-  }
+function resetGame(event) {
+  event.preventDefault();
+  resetScoreBoard(name1, guess1Output, message1, 1);
+  resetScoreBoard(name2, guess2Output, message2, 2);
+  clearInputs();
+  min.innerText = 1;
+  max.innerText = 100;
+  getRandom(1, 100)
+}
